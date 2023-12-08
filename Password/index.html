@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Random Password</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="main">
+        <div class="card">
+            <h1>Generate Random Password</h1>
+            <div class="inp">
+                <input type="text" id="password">
+            </div>
+            <button id="btn" onclick="generatePassword()">Generate Password</button>
+        </div>
+    </div>
+
+    <script>
+        let passwordInput = document.getElementById("password");
+        let btn = document.getElementById("btn");
+
+        const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const lowerCase = "abcdefghijklmnopqrstuvwxyz";
+        const numbers = "0123456789";
+        const specialChars = "!@#$%^&*()_+{}[]|;:'<>,.?/";
+
+        function generatePassword() {
+            let newPassword = "";
+            newPassword += getRandomChar(upperCase);
+            newPassword += getRandomChar(lowerCase);
+            newPassword += getRandomChar(numbers);
+            newPassword += getRandomChar(specialChars);
+            const remainingLength = 8; 
+            for (let i = newPassword.length; i < remainingLength; i++) {
+                const charSet = upperCase + lowerCase + numbers + specialChars;
+                newPassword += getRandomChar(charSet);
+            }
+            newPassword = shuffleString(newPassword);     
+            passwordInput.value = newPassword;
+        }
+        function getRandomChar(charSet) {
+            const randomIndex = Math.floor(Math.random() * charSet.length);
+            return charSet.charAt(randomIndex);
+        }
+         function shuffleString(str) {
+            const array = str.split("");
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array.join("");
+        }
+
+    </script>
+</body>
+</html>

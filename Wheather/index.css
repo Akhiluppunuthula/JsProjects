@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+    background: #000;
+
+}
+.card{
+    width: 90%;
+    max-width: 470px;
+    background:#4CC1AC;
+    padding: 40px 35px;
+    margin: 100px auto 0px;
+    text-align: center;
+    border-radius: 5px;
+
+}
+.city{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.city input{
+    padding: 10px ;
+    border-radius: 30px;
+}
+.city button{
+    border: 0;
+    outline: 0;
+    background-color: #ebfffc;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+.city button img{
+    width: 16px;
+}
+.rain img{
+    width:120px
+}
